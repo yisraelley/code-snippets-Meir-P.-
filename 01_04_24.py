@@ -34,7 +34,17 @@ rotate_to_left(a,b)
 show(b)
 
 
-a = [
+"""
+קיץ תשפ"ב – 2022 – מועד א'
+שאלה 14
+מערך דו-ממדי 2x2 נקרא "כתם" אם כל האיברים שלו שווים לאותו ערך. ה ערך הזה נקרא "צבע הכתם".
+לדוגמה: במערך הנתון יש ארבעה "כתמים":
+שני "כתמים" של ,0 כתם עם של 1 וכתם של .3
+ א. כתבו פעולה המקבלת מערך דו-ממדי של מספרים שלמים וערך value. הפעולה תבדוק אם במערך
+קיים "כתם " עם ערך value. אם כן – הפעולה תחזיר true, ולא – הפעולה תחזיר false.
+מערך דו-ממדי נקרא "מלוכלך" אם יש בו יותר מ- 3 "כתמים" של צבעים שונים.
+"""
+mat1 = [
     [1, 1, 3, 3, 5, 8, 3, 3, 5, 8],
     [1, 1, 8, 8, 5, 5, 8, 3, 5, 5],
     [7, 8, 8, 8, 5, 5, 8, 2, 5, 5],
@@ -43,24 +53,13 @@ a = [
 ]
 
 
-def find_groups(arr, n):
-    count = 0
-    for r in range(len(arr) - 1):
-        for c in range(len(arr[0]) - 1):
-            if arr[r][c] == n:
-                if arr[r][c + 1] == n and arr[r + 1][c] == n and arr[r + 1][c + 1] == n:
-                    count += 1
-    return count
-
-
-def is_group(arr, n):
-    for r in range(len(arr) - 1):
-        for c in range(len(arr[0]) - 1):
-            if arr[r][c] == n:
-                if arr[r][c + 1] == n and arr[r + 1][c] == n and arr[r + 1][c + 1] == n:
+def is_stained(mat, value):
+    for r in range(len(mat) - 1):
+        for c in range(len(mat[0]) - 1):
+            if mat[r][c] == value:
+                if mat[r][c + 1] == value and mat[r + 1][c] == value and mat[r + 1][c + 1] == value:
                     return True
     return False
 
 
-print(find_groups(a, 5))
-print(is_group(a, 5))
+print(is_stained(mat1, 5))
